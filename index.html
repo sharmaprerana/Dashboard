@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -17,6 +17,12 @@
     .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.story{min-height:220px;display:grid;gap:10px}.tag{width:fit-content;border-radius:999px;padding:6px 9px;color:#fff;font-weight:900;font-size:.74rem;text-transform:uppercase}.teal{background:var(--teal)}.red{background:var(--red)}.gold{background:var(--gold)}.blue{background:var(--blue)}.green{background:var(--green)}.story h4{font-size:1.02rem;margin:0}.story p{color:var(--muted);line-height:1.48;font-size:.93rem;margin:0}
     table{width:100%;border-collapse:collapse}.table-wrap{overflow:hidden}th,td{text-align:left;vertical-align:top;padding:13px 14px;border-bottom:1px solid var(--line);font-size:.91rem;line-height:1.38}th{background:#eef6f4;color:#294047;font-size:.76rem;text-transform:uppercase}tr:last-child td{border-bottom:0}.filterbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.filterbar button{min-height:34px;padding:0 11px;font-size:.84rem}.filterbar button.active{background:#19363b;color:white;border-color:#19363b}.pub.hidden{display:none}.pub small{display:block;color:var(--muted);font-weight:800;margin-bottom:3px}.pub strong{display:block;margin-bottom:4px}.pub span{color:var(--muted)}
     footer{padding-top:30px;color:var(--muted);font-size:.84rem}@media print{aside,.buttons,.filterbar{display:none}.app{display:block}main{padding:0}.card,.metric,.table-wrap{box-shadow:none}}@media(max-width:1100px){.app{grid-template-columns:1fr}aside{position:static;height:auto}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.split{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:700px){main{padding:20px 14px 42px}.hero{display:grid}.buttons{justify-content:start}.metrics,.cards{grid-template-columns:1fr}.entry{grid-template-columns:1fr}.table-wrap{overflow-x:auto}}
+  
+    .research-areas{margin:0;padding:18px 18px 18px 38px;line-height:1.6;color:var(--muted)}
+    .publication-links{display:flex;gap:10px;flex-wrap:wrap;align-self:end}
+    .publication-links a{color:var(--teal);text-decoration:underline;text-underline-offset:3px;padding:6px 0;font-weight:700;font-size:.88rem}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+    @media print{.pub.hidden{display:grid}}
   </style>
 </head>
 <body>
@@ -43,8 +49,8 @@
         <div class="head"><h3>Overview</h3></div>
         <div class="metrics">
           <div class="metric"><strong>4</strong><span>Research, teaching, and postdoctoral roles across India and the United States.</span></div>
-          <div class="metric"><strong>7</strong><span>Peer-reviewed publications in ocular infection, corneal immunity, and host defense.</span></div>
-          <div class="metric"><strong>7</strong><span>Conference proceedings, including ARVO and Investigative Ophthalmology & Visual Science.</span></div>
+          <div class="metric"><strong id="publication-count">7</strong><span>Peer-reviewed publications in ocular infection, corneal immunity, and host defense.</span></div>
+          <div class="metric"><strong id="conference-count">5</strong><span>Selected conference abstracts displayed below, including ARVO abstracts published in IOVS.</span></div>
           <div class="metric"><strong>2</strong><span>Recent 2026 research awards and travel/professional development recognition.</span></div>
           <div class="metric"><strong>4</strong><span>Society memberships and journal peer-review activity areas.</span></div>
         </div>
@@ -61,14 +67,14 @@
           </div>
         </div>
         <div>
-          <div class="head"><h3>Research Emphasis</h3><span>Profile weighting</span></div>
-          <div class="card focus">
-            <div class="barrow"><label><span>Ocular immunology and inflammation</span><span>96%</span></label><div class="bar"><span style="width:96%"></span></div></div>
-            <div class="barrow"><label><span>In vivo models and microscopy</span><span>92%</span></label><div class="bar"><span style="width:92%"></span></div></div>
-            <div class="barrow"><label><span>Microbial keratitis and host defense</span><span>90%</span></label><div class="bar"><span style="width:90%"></span></div></div>
-            <div class="barrow"><label><span>Flow cytometry and immune profiling</span><span>86%</span></label><div class="bar"><span style="width:86%"></span></div></div>
-            <div class="barrow"><label><span>Scientific writing and peer review</span><span>88%</span></label><div class="bar"><span style="width:88%"></span></div></div>
-          </div>
+          <div class="head"><h3>Research Areas</h3></div>
+          <ul class="card focus research-areas">
+            <li>Ocular immunology and inflammation</li>
+            <li>In vivo models and microscopy</li>
+            <li>Microbial keratitis and host defense</li>
+            <li>Flow cytometry and immune profiling</li>
+            <li>Scientific writing and peer review</li>
+          </ul>
         </div>
       </section>
 
@@ -94,16 +100,16 @@
       </section>
 
       <section id="outputs">
-        <div class="head"><h3>Publications and Proceedings</h3><span>Filter by output type</span></div>
+        <div class="head"><h3>Publications and Selected Conference Abstracts</h3><span>Filter by output type</span></div>
         <div class="filterbar"><button class="active" data-filter="all">All</button><button data-filter="publication">Publications</button><button data-filter="conference">Conference</button><button data-filter="first">First author</button></div>
         <div class="cards" id="pubs">
-          <article class="card story pub publication first"><small>Publication | 2022</small><strong>Streptococcus pneumoniae exerts oxidative stress, subverts antioxidant signaling and autophagy in human corneal epithelial cells that is alleviated by tert-Butylhydroquinone</strong><span>Sharma, P. and Roy, S. Medical Microbiology and Immunology.</span></article>
-          <article class="card story pub publication"><small>Publication | 2022</small><strong>A rationally designed synthetic antimicrobial peptide against Pseudomonas-associated corneal keratitis: Structure-function correlation</strong><span>Mohid, S.A., Sharma, P., et al. Biophysical Chemistry.</span></article>
-          <article class="card story pub publication"><small>Publication | 2021</small><strong>Alternative Therapeutic Interventions: Antimicrobial Peptides and Small Molecules to Treat Microbial Keratitis</strong><span>Jadi, P.K., Sharma, P., Bhogapurapu, B., and Roy, S. Frontiers in Chemistry.</span></article>
-          <article class="card story pub publication"><small>Publication | 2021</small><strong>Recombinant IL-22 promotes protection in a murine model of Aspergillus flavus keratitis and mediates host immune responses in human corneal epithelial cells</strong><span>Mallela, L.S., Sharma, P., Rao, T., and Roy, S. Cellular Microbiology.</span></article>
-          <article class="card story pub publication first"><small>Publication | 2020</small><strong>Attenuation of Pseudomonas aeruginosa infection by INP0341, a salicylidene acylhydrazide, in a murine model of keratitis</strong><span>Sharma, P., Elofsson, M., and Roy, S. Virulence.</span></article>
-          <article class="card story pub publication first"><small>Publication | 2019</small><strong>Differential Expression of Antimicrobial Peptides in Streptococcus pneumoniae Keratitis and STAT3-Dependent Expression of LL-37 by Streptococcus pneumoniae in Human Corneal Epithelial Cells</strong><span>Sharma, P., Sharma, N., et al. Pathogens.</span></article>
-          <article class="card story pub publication first"><small>Publication | 2018</small><strong>Differential expression of antimicrobial peptides in corneal infection and regulation of antimicrobial peptides and reactive oxygen species by type III secretion system of Pseudomonas aeruginosa</strong><span>Sharma, P., Guha, S., Garg, P., and Roy, S. Pathogens and Disease.</span></article>
+          <article class="card story pub publication first"><small>Publication | 2022</small><strong>Streptococcus pneumoniae exerts oxidative stress, subverts antioxidant signaling and autophagy in human corneal epithelial cells that is alleviated by tert-Butylhydroquinone</strong><span>Sharma, P. and Roy, S. Medical Microbiology and Immunology.</span><div class="publication-links"><a href="https://europepmc.org/article/MED/35325292" aria-label="Europe PMC: Streptococcus pneumoniae exerts oxidative stress, subverts antioxidant signaling and autophagy in human corneal epithelial cells that is alleviated by tert-Butylhydroquinone">Europe PMC</a><a href="https://pubmed.ncbi.nlm.nih.gov/35325292/" aria-label="PubMed: Streptococcus pneumoniae exerts oxidative stress, subverts antioxidant signaling and autophagy in human corneal epithelial cells that is alleviated by tert-Butylhydroquinone">PubMed</a><a href="https://doi.org/10.1007/s00430-022-00731-y" aria-label="DOI: Streptococcus pneumoniae exerts oxidative stress, subverts antioxidant signaling and autophagy in human corneal epithelial cells that is alleviated by tert-Butylhydroquinone">DOI</a></div></article>
+          <article class="card story pub publication"><small>Publication | 2022</small><strong>A rationally designed synthetic antimicrobial peptide against Pseudomonas-associated corneal keratitis: Structure-function correlation</strong><span>Mohid, S.A., Sharma, P., et al. Biophysical Chemistry.</span><div class="publication-links"><a href="https://europepmc.org/article/MED/35605494" aria-label="Europe PMC: A rationally designed synthetic antimicrobial peptide against Pseudomonas-associated corneal keratitis: Structure-function correlation">Europe PMC</a><a href="https://pubmed.ncbi.nlm.nih.gov/35605494/" aria-label="PubMed: A rationally designed synthetic antimicrobial peptide against Pseudomonas-associated corneal keratitis: Structure-function correlation">PubMed</a><a href="https://doi.org/10.1016/j.bpc.2022.106802" aria-label="DOI: A rationally designed synthetic antimicrobial peptide against Pseudomonas-associated corneal keratitis: Structure-function correlation">DOI</a></div></article>
+          <article class="card story pub publication"><small>Publication | 2021</small><strong>Alternative Therapeutic Interventions: Antimicrobial Peptides and Small Molecules to Treat Microbial Keratitis</strong><span>Jadi, P.K., Sharma, P., Bhogapurapu, B., and Roy, S. Frontiers in Chemistry.</span><div class="publication-links"><a href="https://europepmc.org/article/MED/34458234" aria-label="Europe PMC: Alternative Therapeutic Interventions: Antimicrobial Peptides and Small Molecules to Treat Microbial Keratitis">Europe PMC</a><a href="https://pubmed.ncbi.nlm.nih.gov/34458234/" aria-label="PubMed: Alternative Therapeutic Interventions: Antimicrobial Peptides and Small Molecules to Treat Microbial Keratitis">PubMed</a><a href="https://doi.org/10.3389/fchem.2021.694998" aria-label="DOI: Alternative Therapeutic Interventions: Antimicrobial Peptides and Small Molecules to Treat Microbial Keratitis">DOI</a></div></article>
+          <article class="card story pub publication"><small>Publication | 2021</small><strong>Recombinant IL-22 promotes protection in a murine model of Aspergillus flavus keratitis and mediates host immune responses in human corneal epithelial cells</strong><span>Mallela, L.S., Sharma, P., Rao, T., and Roy, S. Cellular Microbiology.</span><div class="publication-links"><a href="https://europepmc.org/article/MED/34029434" aria-label="Europe PMC: Recombinant IL-22 promotes protection in a murine model of Aspergillus flavus keratitis and mediates host immune responses in human corneal epithelial cells">Europe PMC</a><a href="https://pubmed.ncbi.nlm.nih.gov/34029434/" aria-label="PubMed: Recombinant IL-22 promotes protection in a murine model of Aspergillus flavus keratitis and mediates host immune responses in human corneal epithelial cells">PubMed</a><a href="https://doi.org/10.1111/cmi.13367" aria-label="DOI: Recombinant IL-22 promotes protection in a murine model of Aspergillus flavus keratitis and mediates host immune responses in human corneal epithelial cells">DOI</a></div></article>
+          <article class="card story pub publication first"><small>Publication | 2020</small><strong>Attenuation of Pseudomonas aeruginosa infection by INP0341, a salicylidene acylhydrazide, in a murine model of keratitis</strong><span>Sharma, P., Elofsson, M., and Roy, S. Virulence.</span><div class="publication-links"><a href="https://europepmc.org/article/MED/32507000" aria-label="Europe PMC: Attenuation of Pseudomonas aeruginosa infection by INP0341, a salicylidene acylhydrazide, in a murine model of keratitis">Europe PMC</a><a href="https://pubmed.ncbi.nlm.nih.gov/32507000/" aria-label="PubMed: Attenuation of Pseudomonas aeruginosa infection by INP0341, a salicylidene acylhydrazide, in a murine model of keratitis">PubMed</a><a href="https://doi.org/10.1080/21505594.2020.1776979" aria-label="DOI: Attenuation of Pseudomonas aeruginosa infection by INP0341, a salicylidene acylhydrazide, in a murine model of keratitis">DOI</a></div></article>
+          <article class="card story pub publication first"><small>Publication | 2019</small><strong>Differential Expression of Antimicrobial Peptides in Streptococcus pneumoniae Keratitis and STAT3-Dependent Expression of LL-37 by Streptococcus pneumoniae in Human Corneal Epithelial Cells</strong><span>Sharma, P., Sharma, N., et al. Pathogens.</span><div class="publication-links"><a href="https://europepmc.org/article/MED/30845777" aria-label="Europe PMC: Differential Expression of Antimicrobial Peptides in Streptococcus pneumoniae Keratitis and STAT3-Dependent Expression of LL-37 by Streptococcus pneumoniae in Human Corneal Epithelial Cells">Europe PMC</a><a href="https://pubmed.ncbi.nlm.nih.gov/30845777/" aria-label="PubMed: Differential Expression of Antimicrobial Peptides in Streptococcus pneumoniae Keratitis and STAT3-Dependent Expression of LL-37 by Streptococcus pneumoniae in Human Corneal Epithelial Cells">PubMed</a><a href="https://doi.org/10.3390/pathogens8010031" aria-label="DOI: Differential Expression of Antimicrobial Peptides in Streptococcus pneumoniae Keratitis and STAT3-Dependent Expression of LL-37 by Streptococcus pneumoniae in Human Corneal Epithelial Cells">DOI</a></div></article>
+          <article class="card story pub publication first"><small>Publication | 2018</small><strong>Differential expression of antimicrobial peptides in corneal infection and regulation of antimicrobial peptides and reactive oxygen species by type III secretion system of Pseudomonas aeruginosa</strong><span>Sharma, P., Guha, S., Garg, P., and Roy, S. Pathogens and Disease.</span><div class="publication-links"><a href="https://europepmc.org/article/MED/29325116" aria-label="Europe PMC: Differential expression of antimicrobial peptides in corneal infection and regulation of antimicrobial peptides and reactive oxygen species by type III secretion system of Pseudomonas aeruginosa">Europe PMC</a><a href="https://pubmed.ncbi.nlm.nih.gov/29325116/" aria-label="PubMed: Differential expression of antimicrobial peptides in corneal infection and regulation of antimicrobial peptides and reactive oxygen species by type III secretion system of Pseudomonas aeruginosa">PubMed</a><a href="https://doi.org/10.1093/femspd/fty001" aria-label="DOI: Differential expression of antimicrobial peptides in corneal infection and regulation of antimicrobial peptides and reactive oxygen species by type III secretion system of Pseudomonas aeruginosa">DOI</a></div></article>
           <article class="card story pub conference first"><small>Conference | 2026</small><strong>VIP-VIPR2 Mediate Immunoregulation of B and T cells in a Murine Model of Corneal Inflammation</strong><span>Sharma, P. and Hamrah, P. Invest. Ophthalmol. Vis. Sci.</span></article>
           <article class="card story pub conference"><small>Conference | 2026</small><strong>Plasmacytoid Dendritic Cell Depletion Exacerbates Clinical Severity and Skews Corneal and Drainage Lymph Node Immune Responses Toward Th1</strong><span>Venturelli, A., Yoon, C.H., Qiu, F., Sharma, P., et al. IOVS.</span></article>
           <article class="card story pub conference first"><small>Conference | 2025</small><strong>VIPR2 modulates the recruitment of leukocytes during corneal inflammation by mediating E-selectin, P-selectin and ICAM-1 expression on vascular endothelial cells</strong><span>Sharma, P. and Hamrah, P. IOVS.</span></article>
@@ -131,9 +137,26 @@
     </main>
   </div>
   <script>
-    const buttons=document.querySelectorAll('.filterbar button');
-    const pubs=document.querySelectorAll('.pub');
-    buttons.forEach(btn=>btn.addEventListener('click',()=>{buttons.forEach(b=>b.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;pubs.forEach(p=>p.classList.toggle('hidden',f!=='all'&&!p.classList.contains(f)));}));
+    const buttons = document.querySelectorAll('.filterbar button');
+    const pubs = document.querySelectorAll('#pubs .pub');
+    // Totals count every card, independently of the currently selected filter.
+    document.getElementById('publication-count').textContent =
+      document.querySelectorAll('#pubs .pub.publication').length;
+    document.getElementById('conference-count').textContent =
+      document.querySelectorAll('#pubs .pub.conference').length;
+    buttons.forEach(btn => {
+      btn.setAttribute('aria-pressed', String(btn.classList.contains('active')));
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => {
+          const selected = b === btn;
+          b.classList.toggle('active', selected);
+          b.setAttribute('aria-pressed', String(selected));
+        });
+        const filter = btn.dataset.filter;
+        pubs.forEach(pub => pub.classList.toggle('hidden',
+          filter !== 'all' && !pub.classList.contains(filter)));
+      });
+    });
   </script>
 </body>
 </html>
